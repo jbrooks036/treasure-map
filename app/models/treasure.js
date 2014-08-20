@@ -6,6 +6,8 @@ var _     = require('lodash'),
 function Treasure(o){
   this.name = o.name;
   this.location = o.location;
+  this.lat = parseFloat(o.lat);
+  this.lng = parseFloat(o.lng);
 }
 
 Object.defineProperty(Treasure, 'collection', {

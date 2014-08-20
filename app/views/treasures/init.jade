@@ -1,0 +1,35 @@
+extends ../shared/template
+block content
+  h2 New Treasure
+  .container
+    .row
+      .col-xs-4
+        form(role='form', method='post', action='/treasures', enctype='multipart/form-data')
+          input#lat(type='hidden', name='lat')
+          input#lng(type='hidden', name='lng')
+          .form-group
+            label(for='name') Treasure Name
+            input.form-control#name(type='text', name='name', autofocus=true)
+          .form-group
+            label(for='location') Treasure Location
+            input.form-control#location(type='text', name='location')
+          .form-group
+            label(for='photos') Photos
+            input.form-control#photos(type='file', name='photos', multiple=true)
+          .form-group
+            label(for='difficulty') Difficulty
+            br
+            select(name='difficulty')
+              option Easy
+              option Medium
+              option Hard
+          .form-group
+            label(for='hint') Hint
+            input.form-control#hint(type='text', name='hint')
+          br
+          button.btn.btn-primary(type='submit') Add Treasure
+
+block scripts
+  script(src='/js/user/treasuresInit.js')
+
+
