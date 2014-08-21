@@ -4,7 +4,7 @@
   "photo":"images/gold.jpg",
   "difficulty":"medium",
   "found":false,
-  "location":"Montpelier",
+  "loc":"Montpelier",
   "hint":"under the old oak tree"
 }
 
@@ -14,8 +14,8 @@
   "photo":"images/diamond.jpg",
   "difficulty":"easy",
   "found":false,
-  "location":"Museum of Natural History",
-  "hint":"public exhibit"
+  "loc":"New York",
+  "hint":"Museum of Natural History"
 }
 
 {
@@ -24,7 +24,7 @@
   "photo":"images/bentley.jpg",
   "difficulty":"hard",
   "found":false,
-  "location":"London",
+  "loc":"London",
   "hint":"think provenance"
 }
 

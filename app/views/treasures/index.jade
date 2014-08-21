@@ -1,18 +1,25 @@
 extends ../shared/template
 block content
-  h2 Treasure List 
-  .panel.panel-default
-    .panel-body
-      h4 Bootstrap Themes and Templates
-      ul
-        li: a(href='http://bootswatch.com/', target='_blank') http://bootswatch.com/
-        li: a(href='http://bootstrapzero.com/', target='_blank') http://bootstrapzero.com/
-        li: a(href='http://startbootstrap.com/', target='_blank') http://startbootstrap.com/
-        li: a(href='http://www.prepbootstrap.com/', target='_blank') http://www.prepbootstrap.com/
-        li: a(href='http://www.blacktie.co/', target='_blank') http://www.blacktie.co/
-        li: a(href='https://bootstrapmaster.com/', target='_blank') https://bootstrapmaster.com/
-        li: a(href='http://bootstrapstyler.com/', target='_blank') http://bootstrapstyler.com/
+  h2 Treasure List
+    .row
+       .col-xs-12
+         #map
+      .row
+        .col-xs-12
+          table.table.table-striped.table-hover
+            thead
+              tr
+                th Name
+                th Location
+                th Difficulty
+                th Found?
+            tbody
+              each treasure in treasures
+                tr(data-name=treasure.name, data-lat=treasure.lat, data-lng=treasure.lng)
+                  td: a(href='/treasures/#{treasure._id}')= treasure.name
+                  td= treasure.loc
+                  td= treasure.difficulty
+                  td= treasure.found
 
 block scripts
   script(src='/js/user/treasuresIndex.js')
-

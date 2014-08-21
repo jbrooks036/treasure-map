@@ -4,10 +4,18 @@ var _     = require('lodash'),
     Mongo = require('mongodb');
 
 function Treasure(o){
-  this.name = o.name;
-  this.location = o.location;
-  this.lat = parseFloat(o.lat);
-  this.lng = parseFloat(o.lng);
+  console.log('CONSTRUCTOR: o', o);
+  this.name       = o.name;
+  this.loc        = o.location;
+  this.lat        = parseFloat(o.lat);
+  this.lng        = parseFloat(o.lng);
+  this.difficulty = o.difficulty;
+  this.hint       = o.hint;
+  this.found      = false;
+  /*
+  this.photos     = o.photos;
+  */
+  console.log('CONSTRUCTOR:', this);
 }
 
 Object.defineProperty(Treasure, 'collection', {
@@ -18,12 +26,29 @@ Treasure.prototype.save = function(cb){
   Treasure.collection.save(this, cb);
 };
 
+Treasure.create = function(fields, files, cb){
+  console.log('model-create fields:', fields);
+  console.log('model-create files:', files);
+  console.log('model-create fields.name[0]:', fields.name[0]);
+  console.log('model-create fields.difficulty:', fields.difficulty);
+  var o = {name: fields.name[0],
+        loc: fields.location[0],
+        lat: fields.lat[0],
+        lng: fields.lng[0],
+        difficulty: fields.difficulty[0],
+      hint: fields.hint[0]},
+      t = new Treasure(o);
+  Treasure.collection.save(t, cb);
+};
+
 Treasure.all = function(cb){
   Treasure.collection.find().toArray(function(err,objects){
     var treasures = objects.map(function(o){
+      console.log('T.all o', o);
       return rePrototype(o);
     });
 
+    console.log('Treasure.all - treasures: ', treasures);
     cb (treasures);
   });
 };
