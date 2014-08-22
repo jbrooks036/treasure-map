@@ -6,7 +6,7 @@ var _     = require('lodash'),
 function Treasure(o){
   console.log('CONSTRUCTOR: o', o);
   this.name       = o.name;
-  this.loc        = o.location;
+  this.loc        = o.loc;
   this.lat        = parseFloat(o.lat);
   this.lng        = parseFloat(o.lng);
   this.difficulty = o.difficulty;
@@ -32,7 +32,7 @@ Treasure.create = function(fields, files, cb){
   console.log('model-create fields.name[0]:', fields.name[0]);
   console.log('model-create fields.difficulty:', fields.difficulty);
   var o = {name: fields.name[0],
-        loc: fields.location[0],
+        loc: fields.locName[0],
         lat: fields.lat[0],
         lng: fields.lng[0],
         difficulty: fields.difficulty[0],

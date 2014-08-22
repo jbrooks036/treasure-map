@@ -2,9 +2,11 @@
   "_id":{"$oid":"000000000000000000000001"},
   "name":"Gold",
   "photo":"images/gold.jpg",
-  "difficulty":"medium",
+  "difficulty":"Medium",
   "found":false,
   "loc":"Montpelier",
+  "lat":"44.2500",
+  "lng":"-72.5667",
   "hint":"under the old oak tree"
 }
 
@@ -12,9 +14,11 @@
   "_id":{"$oid":"000000000000000000000002"},
   "name":"Diamond",
   "photo":"images/diamond.jpg",
-  "difficulty":"easy",
+  "difficulty":"Easy",
   "found":false,
   "loc":"New York",
+  "lat":"40.7127",
+  "lng":"-74.0059",
   "hint":"Museum of Natural History"
 }
 
@@ -22,9 +26,11 @@
   "_id":{"$oid":"000000000000000000000003"},
   "name":"Bentley",
   "photo":"images/bentley.jpg",
-  "difficulty":"hard",
+  "difficulty":"Hard",
   "found":false,
   "loc":"London",
+  "lat":"51.5072",
+  "lng":"-00.1275",
   "hint":"think provenance"
 }
 

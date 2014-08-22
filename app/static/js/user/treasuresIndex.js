@@ -13,22 +13,22 @@
     });
   });
 
-  function addMarker(lat, lng, name){
+  function addMarker(lat, lng, locName){
     var latLng = new google.maps.LatLng(lat, lng);
-    new google.maps.Marker({map: map, position: latLng, title: name, animation: google.maps.Animation.DROP});
+    new google.maps.Marker({map: map, position: latLng, title: locName, animation: google.maps.Animation.DROP});
     // , icon: '/img/bluepin.png'});
   }
 
   function getPositions(){
     var positions = $('table tbody tr').toArray().map(function(tr){
-      var name = $(tr).attr('data-name'),
+      var locName = $(tr).attr('data-locName'),
           lat  = $(tr).attr('data-lat'),
           lng  = $(tr).attr('data-lng'),
-          pos  = {name:name, lat:parseFloat(lat), lng:parseFloat(lng)};
+          pos  = {name:locName, lat:parseFloat(lat), lng:parseFloat(lng)};
       return pos;
     });
 
-    console.log(name, lat, lng);
+    console.log(positions);
     return positions;
   }
 
