@@ -55,11 +55,11 @@ Treasure.all = function(cb){
 
 Treasure.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
-
   Treasure.collection.findOne({_id:_id}, function(err, obj){
-    var t = rePrototype(obj);
-
-    cb(t);
+    cb(err, _.create(Treasure.prototype, obj));
+    // var t = rePrototype(obj);
+    // console.log('findById: ', t);
+    // cb(t);
   });
 };
 

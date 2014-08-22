@@ -18,8 +18,13 @@ exports.create = function(req, res){
 
 exports.index = function(req, res){
   Treasure.all(function(treasures){
-    console.log('controller - treasures: ', treasures);
     res.render('treasures/index', {treasures:treasures});
+  });
+};
+
+exports.show = function(req, res){
+  Treasure.findById(req.params.id, function(err, treasure){
+    res.render('treasures/show', {treasure:treasure});
   });
 };
 
